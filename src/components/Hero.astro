@@ -1,0 +1,54 @@
+---
+import LinkButton from "@/components/LinkButton.astro"
+import SectionContainer from "@/components/SectionContainer.astro"
+import ACTIONS from "@/const/ACTIONS"
+import DownloadIcon from "@/icons/Download.astro"
+import Button from "./Button.astro"
+import Logo from "./Logo.astro"
+---
+
+<SectionContainer class="-mt-24 mb-32 md:mt-0">
+	<div
+		class="grid grid-cols-2 flex-col items-center justify-center text-gray-200 dark:text-gray-100"
+	>
+		<!-- container #1 -->
+		<div class="order-2 col-span-2 lg:order-2 lg:col-span-1">
+			<h1 class="mb-4 pl-2 text-3xl font-bold md:text-4xl lg:pt-16 lg:text-5xl">
+				Hey, soy SubVray
+			</h1>
+			<p
+				class="mb-4 rounded-md border-2 border-[#2a376e20] bg-gray-900/80 p-2 text-sm text-gray-200 shadow backdrop-blur md:text-xl"
+			>
+				Bienvenido a mi portafolio web. Soy un apasionado del desarrollo web. Aunque aún no tengo
+				experiencia profesional como desarrollador web, he dedicado mi tiempo y esfuerzo a formarme
+				y desarrollar proyectos personales que demuestran mis habilidades y conocimientos.
+			</p>
+
+			<div class="mb-4 flex flex-wrap gap-3">
+				{
+					ACTIONS.map((action) => (
+						<LinkButton href={action.url}>
+							<action.icon width={16} />
+							{action.label}
+						</LinkButton>
+					))
+				}
+				<LinkButton href="/CV/Curriculum-SubVray.pdf" download="CV-SubVray"
+					><DownloadIcon class:list={"size-5"} />Descargar CV</LinkButton
+				>
+			</div>
+		</div>
+		<!-- container #2 -->
+		<div
+			class="order-1 col-span-2 flex flex-col items-center justify-center lg:order-2 lg:col-span-1"
+		>
+			<Logo />
+
+			<div
+				class="-mt-8 mb-6 flex cursor-pointer items-center hover:scale-105 hover:animate-tilt md:mt-1 md:justify-center"
+			>
+				<Button> Disponible para trabajar </Button>
+			</div>
+		</div>
+	</div>
+</SectionContainer>

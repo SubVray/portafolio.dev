@@ -1,0 +1,112 @@
+---
+const { items, reverse } = Astro.props
+---
+
+<div
+	class="enable-animation mx-auto w-full max-w-full md:max-w-2xl lg:max-w-5xl"
+	data-reverse=`${reverse}`
+>
+	<div class="marquee">
+		<ul class="marquee__content">
+			{
+				items?.map((item: any) => (
+					<li class="marquee__item rounded-md">
+						<div class="data">
+							<item.icon class="size-11" />
+							<span class="font-semibold">{item.title}</span>
+						</div>
+					</li>
+				))
+			}
+		</ul>
+		<ul aria-hidden="true" class="marquee__content">
+			{
+				items?.map((item: any) => (
+					<li class="marquee__item rounded-md">
+						<div class="data">
+							<item.icon class="size-11" />
+							<span class="font-semibold">{item.title}</span>
+						</div>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</div>
+
+<style>
+	/* Marquee styles */
+	.marquee {
+		--gap: 0.5rem;
+		position: relative;
+		display: flex;
+		overflow: hidden;
+		user-select: none;
+		gap: var(--gap);
+		mask-image: linear-gradient(to right, transparent, #000 20% 80%, transparent);
+	}
+
+	.marquee__content {
+		flex-shrink: 0;
+		display: flex;
+		justify-content: space-around;
+		gap: var(--gap);
+		min-width: 100%;
+	}
+
+	.marquee__content > * {
+		flex: 0 0 auto;
+		color: white;
+		margin: 2px;
+		padding: 1rem 2rem;
+		text-align: center;
+	}
+
+	.marquee__item {
+		border: 2px solid transparent;
+		min-width: 50px;
+		background-color: #111827cc;
+		border: 2px solid #2a376e20;
+	}
+	.marquee__item .data {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 1rem;
+		transition: all 0.3s ease-in-out;
+	}
+
+	.marquee__item:hover .data {
+		scale: 1.1;
+	}
+	.marquee__item:hover span {
+		opacity: 1;
+	}
+
+	ul {
+		padding-left: 0;
+	}
+
+	@keyframes scroll {
+		from {
+			transform: translateX(0);
+		}
+		to {
+			transform: translateX(calc(-100% - var(--gap)));
+		}
+	}
+
+	/* Enable animation */
+	.enable-animation .marquee__content {
+		animation: scroll 50s linear infinite !important;
+	}
+
+	/* Pause on hover */
+	.marquee:hover .marquee__content {
+		animation-play-state: paused !important;
+	}
+
+	div[data-reverse="true"] .marquee .marquee__content {
+		animation-direction: reverse !important;
+	}
+</style>

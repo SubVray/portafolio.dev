@@ -1,0 +1,31 @@
+---
+import Hero from "@/components/Hero.astro"
+import Marquee from "@/components/Marquee.astro"
+import Projects from "@/components/Projects.astro"
+import SectionContainer from "@/components/SectionContainer.astro"
+import itemsSkills from "@/const/SLIDERITEMS"
+import DevIcon from "@/icons/Dev.astro"
+import Layout from "../layouts/Layout.astro"
+---
+
+<Layout
+	title="Porfolio de SubVray - Desarrollador y Programador Web"
+	description="Contrata a SubVray para crear tu aplicación web o móvil. Desarrollador Web. Especializado en crear aplicaciones únicas."
+>
+	<main class="animate-zoom-in px-4 pt-20">
+		<Hero />
+		<SectionContainer id="proyectos" class="mb-4">
+			<h2
+				class="mb-4 flex items-center gap-1 whitespace-nowrap text-3xl font-semibold text-gray-800 dark:text-gray-200 md:text-4xl"
+			>
+				<span class="mt-1"> <DevIcon class="size-11" /> </span>
+				Proyectos
+			</h2>
+			<Projects />
+		</SectionContainer>
+		<SectionContainer id="skills" class="mb-4 flex flex-col gap-4">
+			<Marquee items={itemsSkills} reverse={false} />
+			<Marquee items={itemsSkills} reverse={true} />
+		</SectionContainer>
+	</main>
+</Layout>

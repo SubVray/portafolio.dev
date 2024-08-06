@@ -1,0 +1,125 @@
+---
+import Button from "@/components/Button.astro"
+import LinkButton from "@/components/LinkButton.astro"
+import PROJECTS from "@/const/PROJECTS"
+import GitHubIcon from "@/icons/GitHub.astro"
+import LinkIcon from "@/icons/Link.astro"
+---
+
+<div id="projects-container" class="flex flex-col gap-y-16">
+	{
+		PROJECTS.map(({ image, title, description, tags, link, gitHub }, index) => (
+			<article
+				class={`project group flex flex-col space-x-0 space-y-8 md:flex-row md:space-x-8 md:space-y-0 ${index >= 3 ? "hidden" : ""}`}
+			>
+				<div class="w-full md:w-1/2">
+					<div class="relative col-span-6 row-span-5 flex transform flex-col items-center gap-8 overflow-clip rounded-xl shadow-xl transition duration-500 ease-in-out group-hover:animate-tilt sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+						<img
+							alt={title}
+							class="h-56 w-full object-cover object-top transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+							src={image}
+						/>
+					</div>
+				</div>
+
+				<div class="w-full md:w-1/2 md:max-w-lg">
+					<h3 class="text-2xl font-bold text-gray-800 dark:text-white">{title}</h3>
+					<div class="mt-2 flex flex-wrap">
+						<ul class="mb-2 flex flex-row flex-wrap gap-2">
+							{tags.map((tag) => (
+								<li>
+									<span
+										class={`flex gap-x-2 text-nowrap rounded-full text-sm ${tag.class} px-2 py-1 hover:animate-rubber-band`}
+									>
+										<tag.icon class="mt-0.5 size-4" />
+										{tag.name}
+									</span>
+								</li>
+							))}
+						</ul>
+
+						<div class="mt-2 rounded-md border-2 border-[#2a376e20] bg-gray-900/65 p-2 font-normal dark:text-gray-50">
+							{description}
+						</div>
+						<footer class="mt-4 flex items-end justify-start gap-x-4">
+							{gitHub && (
+								<LinkButton href={gitHub} aria-label="Ver código en GitHub">
+									<GitHubIcon class="size-6" />
+									Code
+								</LinkButton>
+							)}
+							{link && (
+								<LinkButton href={link} aria-label="Ver vista previa del proyecto">
+									<LinkIcon class="size-4" />
+									Preview
+								</LinkButton>
+							)}
+						</footer>
+					</div>
+				</div>
+			</article>
+		))
+	}
+</div>
+
+{
+	PROJECTS.length > 3 && (
+		<div class="mt-6 flex items-center justify-center">
+			<Button id="show-more" aria-label="Ver más proyectos">
+				Ver más proyectos
+			</Button>
+		</div>
+	)
+}
+
+<script>
+	function setupEventListeners() {
+		const loadMoreBtn = document.getElementById("show-more")
+		const projects = document.querySelectorAll(".project")
+		let visibleProjects = 3
+
+		function showProjects() {
+			const nextProjects = Array.from(projects).slice(visibleProjects, visibleProjects + 3)
+			nextProjects.forEach((project) => project.classList.remove("hidden"))
+			visibleProjects += 3
+			if (visibleProjects >= projects.length) {
+				loadMoreBtn?.classList.add("hidden")
+			}
+		}
+
+		function resetProjects() {
+			Array.from(projects)
+				.slice(3)
+				.forEach((project) => project.classList.add("hidden"))
+			visibleProjects = 3
+			loadMoreBtn?.classList.remove("hidden")
+		}
+
+		function handleScroll() {
+			let st = window.pageYOffset || document.documentElement.scrollTop
+			if (st <= 0) {
+				// Scroll hacia arriba
+				resetProjects()
+			}
+		}
+
+		loadMoreBtn?.addEventListener("click", showProjects)
+		window.addEventListener("scroll", handleScroll)
+
+		// Retorna una función para limpiar los event listeners
+		return () => {
+			loadMoreBtn?.removeEventListener("click", showProjects)
+			window.removeEventListener("scroll", handleScroll)
+		}
+	}
+
+	let cleanup: void | (() => void)
+	document.addEventListener("DOMContentLoaded", () => {
+		cleanup = setupEventListeners()
+	})
+
+	// Limpieza cuando el componente se desmonta o la página se recarga
+	document.addEventListener("astro:before-swap", () => {
+		if (cleanup) cleanup()
+	})
+</script>
