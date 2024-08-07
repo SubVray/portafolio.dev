@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import FirebaseIcon from "@/icons/Firebase.astro"
+import SQLIcon from '@/icons/SQL.astro'
 import AstroIcon from "../icons/AstroIcon.astro"
 import CSSIcon from "../icons/CSS.astro"
 import GSAPIcon from "../icons/GSAP.astro"
@@ -75,5 +76,10 @@ export const TAGS = {
 		name: "In Progress",
 		class: "bg-[#993500] text-white",
 		icon: InProgressIcon,
+	},
+	SQLSERVER: {
+		name: "SQL Server",
+		class: "bg-[#656565] text-white",
+		icon: SQLIcon,
 	},
 }
