@@ -1,5 +1,5 @@
 export const seoConfig = {
-	baseURL: "subvray.vercel.app", // Production URL.
+	baseURL: "https://subvray.vercel.app/", // Production URL.
 	description: "",
 	type: "website",
 	image: {
