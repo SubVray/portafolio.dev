@@ -1,0 +1,12 @@
+export const seoConfig = {
+	baseURL: "subvray.vercel.app", // Production URL.
+	description: "",
+	type: "website",
+	image: {
+		url: "/img/page-image.png",
+		alt: "SubVray page",
+		width: 705,
+		height: 606,
+	},
+	siteName: "subvray.dev",
+}
