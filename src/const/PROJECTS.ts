@@ -57,7 +57,7 @@ import { TAGS } from "./TAGS"
 			"Pagina web y aplicación para gestionar una estación ferroviaria como: administrador, empleado y cliente, usando un diseño moderno y una interfaz amigable. Creada desde cero con React JS, Zustand y Tailwind CSS.",
 		gitHub: "https://github.com/SubVray/FrontCalendar",
 		image: "/projects/railway.webp",
-		tags: [TAGS.VITE, TAGS.ZUSTAND, TAGS.REACT, TAGS.TAILWIND, TAGS.INPROGRESS],
+		tags: [TAGS.VITE, TAGS.ZUSTAND, TAGS.REACT, TAGS.TAILWIND, TAGS.SQLSERVER,TAGS.INPROGRESS,],
 	},
 	{
 		title: "Boda Kerlyn & German - Pagina y aplicación web invitación e información para una boda",
