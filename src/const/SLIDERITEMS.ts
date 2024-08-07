@@ -1,3 +1,4 @@
+import Vite from '@/icons/Vite.astro'
 import CSS from "../icons/CSS.astro"
 import HTMLIcon from "../icons/HTML.astro"
 import JS from "../icons/JS.astro"
@@ -64,6 +65,12 @@ const items = [
 		label: "SQL SERVER",
 		url: "https://github.com/SubVray",
 		icon: SQLIcon,
+	},
+	{
+		title: "Vite",
+		label: "VITE",
+		url: "https://github.com/SubVray",
+		icon: Vite,
 	},
 ]
 
