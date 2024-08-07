@@ -10,9 +10,9 @@ import LinkIcon from "@/icons/Link.astro"
 	{
 		PROJECTS.map(({ image, title, description, tags, link, gitHub }, index) => (
 			<article
-				class={`project group flex flex-col space-x-0 space-y-8 md:flex-row md:space-x-8 md:space-y-0 ${index >= 3 ? "hidden" : ""}`}
+				class={`project group flex flex-col space-x-0 space-y-8 lg:flex-row lg:space-x-8 lg:space-y-0 ${index >= 3 ? "hidden" : ""}`}
 			>
-				<div class="w-full md:w-1/2">
+				<div class="w-full lg:w-1/2">
 					<div class="relative col-span-6 row-span-5 flex transform flex-col items-center gap-8 overflow-clip rounded-xl shadow-xl transition duration-500 ease-in-out group-hover:animate-tilt sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
 						<img
 							alt={title}
@@ -22,16 +22,16 @@ import LinkIcon from "@/icons/Link.astro"
 					</div>
 				</div>
 
-				<div class="w-full md:w-1/2 md:max-w-lg">
+				<div class="w-full lg:w-1/2 lg:max-w-lg">
 					<h3 class="text-2xl font-bold text-gray-800 dark:text-white">{title}</h3>
 					<div class="mt-2 flex flex-wrap">
 						<ul class="mb-2 flex flex-row flex-wrap gap-2">
 							{tags.map((tag) => (
 								<li>
 									<span
-										class={`flex gap-x-2 text-nowrap rounded-full text-sm ${tag.class} px-2 py-1 hover:animate-rubber-band`}
+										class={`flex gap-x-2 text-nowrap rounded-full text-sm ${tag.class} items-center justify-center px-2 py-1 hover:animate-rubber-band`}
 									>
-										<tag.icon class="mt-0.5 size-4" />
+										<tag.icon class:list={`${tag.name === "Vite" ? "!size-5" : "size-4"}`} />
 										{tag.name}
 									</span>
 								</li>
@@ -64,7 +64,7 @@ import LinkIcon from "@/icons/Link.astro"
 
 {
 	PROJECTS.length > 3 && (
-		<div class="mt-6 flex items-center justify-center">
+		<div class="mt-12 flex items-center justify-center">
 			<Button id="show-more" aria-label="Ver más proyectos">
 				Ver más proyectos
 			</Button>
