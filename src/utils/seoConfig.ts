@@ -3,7 +3,7 @@ export const seoConfig = {
 	description: "",
 	type: "website",
 	image: {
-		url: "/img/page-image.png",
+		url: "../../public/img/page-image.png",
 		alt: "SubVray page",
 		width: 705,
 		height: 606,
