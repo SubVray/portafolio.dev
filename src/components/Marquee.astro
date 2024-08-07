@@ -10,7 +10,7 @@ const { items, reverse } = Astro.props
 		<ul class="marquee__content">
 			{
 				items?.map((item: any) => (
-					<li class="marquee__item rounded-md">
+					<li class="marquee__item rounded-md hover:animate-tilt">
 						<div class="data">
 							<item.icon class="size-11" />
 							<span class="font-semibold">{item.title}</span>
@@ -22,8 +22,8 @@ const { items, reverse } = Astro.props
 		<ul aria-hidden="true" class="marquee__content">
 			{
 				items?.map((item: any) => (
-					<li class="marquee__item rounded-md">
-						<div class="data">
+					<li class="marquee__item rounded-md hover:animate-tilt">
+						<div class="data transition">
 							<item.icon class="size-11" />
 							<span class="font-semibold">{item.title}</span>
 						</div>
@@ -66,18 +66,20 @@ const { items, reverse } = Astro.props
 		border: 2px solid transparent;
 		min-width: 50px;
 		background-color: #111827cc;
-		border: 2px solid #2a376e20;
+		border: 2px solid transparent;
+	}
+	.marquee__item:hover {
+		border: 2px solid #36448020;
 	}
 	.marquee__item .data {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		gap: 1rem;
-		transition: all 0.3s ease-in-out;
 	}
 
 	.marquee__item:hover .data {
-		scale: 1.1;
+		scale: 1.05;
 	}
 	.marquee__item:hover span {
 		opacity: 1;
