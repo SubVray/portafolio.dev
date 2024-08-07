@@ -4,7 +4,11 @@ import Marquee from "@/components/Marquee.astro"
 import Projects from "@/components/Projects.astro"
 import SectionContainer from "@/components/SectionContainer.astro"
 import itemsSkills from "@/const/SLIDERITEMS"
+import AstroIcon from "@/icons/AstroIcon.astro"
 import DevIcon from "@/icons/Dev.astro"
+import Tailwind from "@/icons/Tailwind.astro"
+import UserCheck from "@/icons/UserCheck.astro"
+import Vercel from "@/icons/Vercel.astro"
 import Layout from "../layouts/Layout.astro"
 ---
 
@@ -12,7 +16,7 @@ import Layout from "../layouts/Layout.astro"
 	title="Porfolio de SubVray - Desarrollador y Programador Web"
 	description="Contrata a SubVray para crear tu aplicación web o móvil. Desarrollador Web. Especializado en crear aplicaciones únicas."
 >
-	<main class="animate-zoom-in px-4 pt-20">
+	<main class="mb-4 animate-zoom-in px-4 pt-20">
 		<Hero />
 		<SectionContainer id="proyectos" class="mb-4">
 			<h2
@@ -23,9 +27,73 @@ import Layout from "../layouts/Layout.astro"
 			</h2>
 			<Projects />
 		</SectionContainer>
-		<SectionContainer id="skills" class="mb-4 flex flex-col gap-4">
+		<SectionContainer id="skills" class="my-12 flex flex-col gap-4">
 			<Marquee items={itemsSkills} reverse={false} />
 			<Marquee items={itemsSkills} reverse={true} />
 		</SectionContainer>
+		<SectionContainer id="about" class="my-12 flex flex-col gap-4">
+			<h2
+				class="mb-4 flex items-center gap-1 whitespace-nowrap text-3xl font-semibold text-gray-800 dark:text-gray-200 md:text-4xl"
+			>
+				<UserCheck class="size-10" />
+				Sobre mi
+			</h2>
+			<div
+				class="grid grid-cols-2 flex-col items-center justify-center text-gray-200 dark:text-gray-100"
+			>
+				<div class="order-2 col-span-2 lg:order-2 lg:col-span-1">
+					<p
+						class="mb-4 rounded-md border-2 border-[#2a376e20] bg-gray-900/80 p-2 text-sm text-gray-200 shadow backdrop-blur md:text-lg"
+					>
+						Soy Jim Bolaños Zúñiga, un Desarrollador Frontend con base en Costa Rica, apasionado por
+						la tecnología. Disfruto del desafío de encontrar soluciones creativas a problemas y me
+						encanta colaborar con equipos para lograr excelentes resultados.
+					</p>
+					<p
+						class="mb-4 rounded-md border-2 border-[#2a376e20] bg-gray-900/80 p-2 text-sm text-gray-200 shadow backdrop-blur md:text-lg"
+					>
+						Aunque no cuento con experiencia laboral formal, he dedicado tiempo a realizar proyectos
+						personales , centrándome en el desarrollo frontend y el diseño web. Me apasiona
+						especialmente asegurarme de que cada proyecto no solo sea funcional, sino que también
+						atractivo visual . Mi enfoque se centra en la atención meticulosa a los detalles en el
+						diseño y desarrollo.
+					</p>
+				</div>
+				<!-- container #2 -->
+				<div
+					class="order-1 col-span-2 flex flex-col items-center justify-center lg:order-2 lg:col-span-1"
+				>
+					<img
+						src="/img/logo/subvray-pc.webp"
+						alt="Logo de SubVray"
+						width="250"
+						height="250"
+						loading="lazy"
+						class="h-auto w-[18rem] lg:w-[20rem] xl:w-[26rem]"
+					/>
+				</div>
+			</div>
+		</SectionContainer>
 	</main>
+	<footer class="w-full py-4 text-center">
+		<div class="flex flex-col items-center justify-center gap-2">
+			<p class="flex gap-1 text-base font-semibold text-gray-400">
+				Made by <a href="https://github.com/SubVray" class="block text-gray-200 hover:animate-tilt">
+					SubVray
+				</a>
+				using:
+			</p>
+			<div class="flex items-center justify-center gap-2">
+				<a href="https://astro.build/" target="_blank" class="hover:animate-tilt">
+					<AstroIcon class="size-8" />
+				</a>
+				<a href="https://tailwindcss.com/" target="_blank" class="hover:animate-tilt">
+					<Tailwind class="size-10" />
+				</a>
+				<a href="https://vercel.com/" target="_blank" class="hover:animate-tilt">
+					<Vercel class="size-8" />
+				</a>
+			</div>
+		</div>
+	</footer>
 </Layout>
