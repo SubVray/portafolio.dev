@@ -3,12 +3,12 @@ import LinkedInIcon from "@/icons/LinkedIn.astro"
 import MailIcon from "@/icons/Mail.astro"
 
 const ACTIONS = [
-	{
-		title: "Jim Bolaños Zúñiga",
-		label: "jim.alberto.21@gmail.com",
-		url: "mailto:jim.alberto.21@gmail.com",
-		icon: MailIcon,
-	},
+	// {
+	// 	title: "Jim Bolaños Zúñiga",
+	// 	label: "jim.alberto.21@gmail.com",
+	// 	url: "mailto:jim.alberto.21@gmail.com",
+	// 	icon: MailIcon,
+	// },
 	{
 		title: "LinkedIn",
 		label: "LinkedIn",
