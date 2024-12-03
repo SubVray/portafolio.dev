@@ -20,7 +20,7 @@ import { TAGS } from "./TAGS"
 		title: "Fitness Club - Página web de un gimnasio",
 		description:
 			"Pagina web de un gimnasio con un diseño moderno y una interfaz amigable. Creada desde cero con Astro y  Tailwind CSS.",
-		link: "https://gymfitnessclub.vercel.app/",
+		link: "https://gymfitnessclub.vercel.app",
 		gitHub: "https://github.com/SubVray/fitnessclub",
 		image: "/projects/fitnessclub.webp",
 		tags: [TAGS.ASTRO, TAGS.TAILWIND],
@@ -80,7 +80,7 @@ import { TAGS } from "./TAGS"
 		description:
 			" Aplicación web para gestionar tu cartón y jugar a bingo, usando un diseño moderno y una interfaz amigable. Creada desde cero con React JS y Tailwind CSS.",
 		link: "https://bingogame-custom.vercel.app/",
-		// gitHub: "https://github.com/SubVray/FrontCalendar",
+		gitHub: "https://github.com/SubVray/bingo-game",
 		image: "/projects/bingo.webp",
 		tags: [TAGS.VITE, TAGS.REACT, TAGS.TAILWIND,],
 	},
