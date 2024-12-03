@@ -79,7 +79,7 @@ import { TAGS } from "./TAGS"
 		title: "Bingo App - Aplicación web para gestionar tu cartón y jugar a bingo",
 		description:
 			" Aplicación web para gestionar tu cartón y jugar a bingo, usando un diseño moderno y una interfaz amigable. Creada desde cero con React JS y Tailwind CSS.",
-		link: "https://bingo-subvray.vercel.app/",
+		link: "https://bingogame-custom.vercel.app/",
 		// gitHub: "https://github.com/SubVray/FrontCalendar",
 		image: "/projects/bingo.webp",
 		tags: [TAGS.VITE, TAGS.REACT, TAGS.TAILWIND,],
